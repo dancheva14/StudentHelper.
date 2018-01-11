@@ -1,0 +1,37 @@
+﻿@model StudentHelper.Models.TestResult
+@{ var gifPath = "";
+    gifPath = String.Format(@"../Content/{0}.gif", @Model.Status);
+    var imagePath = "";
+    if (@Model.Procent <= 20)
+    { imagePath = String.Format(@"../Content/{0}.png", "Poor2"); }
+    else if (@Model.Procent <= 40)
+    { imagePath = String.Format(@"../Content/{0}.png", "Middle3"); }
+    else if (@Model.Procent <= 60)
+    { imagePath = String.Format(@"../Content/{0}.png", "Good4"); }
+    else if (@Model.Procent <= 80)
+    { imagePath = String.Format(@"../Content/{0}.png", "VeryGood5"); }
+    else
+    { imagePath = String.Format(@"../Content/{0}.png", "Excellent6"); }
+}
+<div>
+    Верни отговори: @Model.CorrectAnswers
+</div>
+<div>
+    Грешни отговори: @Model.WrongAnswers
+</div>
+<div>
+    Неотговорени въпроси: @Model.EmptyAnswers
+</div>
+<div>
+    процент: @Model.Procent %
+</div>
+@*<div>
+        @Html.Partial("_Chart")
+    </div>*@
+<div>
+    Оценка:
+    <img id="image" src="@imagePath" height="60" width="100" />
+</div>
+<div style="float: right; height: 120px; width: 400px; ">
+    <img id="image" src="@gifPath" />
+</div>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Още няма име", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Начало", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Студенти", "PeopleMainView", "People")</li>
+                    <li>@Html.ActionLink("За мен", "MyAccount", "MyAccount", new { personId = 10 })</li>
+                    <li>@Html.ActionLink("Университети", "UniversitiesMainView", "Universities")</li>
+                    <li>@Html.ActionLink("Тестове", "Index", "Test")</li>
+
+                    <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Добави <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Университет", "InsertUniversity", "Universities")</li>
+                            <li>@Html.ActionLink("Човек", "InsertPerson", "People")</li>
+                            <li>@Html.ActionLink("Специалност", "InsertSpecialty", "Specialties")</li>
+                        </ul>
+                        @*@if (User != null && User.Identity.IsAuthenticated)
+                                {
+                                <li>@Html.ActionLink("Изход", "Logout", "UserRegistration")</li>
+                            }
+                            else
+                            {
+                                <li>
+                                    @Html.ActionLink("Вход", "Login", "UserRegistration"
+                                      )
+                                </li>
+                                <li>@Html.ActionLink("Регистрация", "Registration", "UserRegistration")</li>
+                            }*@
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Кой ли знае</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model StudentHelper.Models.University
+@{
+    ViewBag.Title = "UniversityInformationView";
+}
+
+<h2>@Model.UniversityName</h2>
+@Html.HiddenFor(m=>m.UniversityId)
+<div class="border_holder" style="margin-top:45px;">
+    <div class="extra_title">
+        <div>
+            <h2>Информация за университет</h2>
+        </div>
+    </div>
+    <div class="form-group" style="width: auto; font-size:18px; ">
+        <table cellspacing="0" cellpadding="40" style="margin-top:45px; margin-left:auto; margin-right:auto;">
+            <tbody>
+                <tr>
+                    <td class="color_invert">Име</td>
+                    <td class="color_invert">
+                        @Html.LabelFor(m => m.UniversityName)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="color"> Местоположение </td>
+                    <td class="color"> @Html.LabelFor(m => m.Location) </td>
+                </tr>
+                <tr>
+                    <td class="color_invert">Сайт</td>
+                    <td class="color_invert"> @Html.LabelFor(m => m.Site) </td>
+                </tr>
+                <tr>
+                    <td class="color"> Специалност </td>
+                    @*<td class="color_invert">@Html.LabelFor(m => )</td>*@
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+                       

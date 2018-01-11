@@ -1,0 +1,12 @@
+﻿@model object
+
+@{
+    dynamic mod = Model;
+    var answer = mod.GetType().GetProperty("answer").GetValue(mod, null) as StudentHelper.Models.Answer;
+    var questionIndex = (int)mod.GetType().GetProperty("questionIndex").GetValue(mod, null);
+    var answerIndex = (int)mod.GetType().GetProperty("answerIndex").GetValue(mod, null);
+}
+<div>
+    <input type="radio" data-index="@answerIndex" />
+    @Html.Label(answer.Content)
+</div>

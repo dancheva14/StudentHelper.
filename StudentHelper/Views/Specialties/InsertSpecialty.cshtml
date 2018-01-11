@@ -1,0 +1,24 @@
+﻿@model StudentHelper.ViewModels.MultipleViewModel
+@{
+    ViewBag.Title = "InsertSpecialty";
+}
+
+<h2></h2>
+<body>
+    @using (Html.BeginForm("InsertSpecialty", "Specialties", FormMethod.Post))
+    {
+        <div>
+            @Html.Label("Въведете име")
+            @Html.TextBoxFor(m => m.Specialty.SpecialtyName, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Въведете e-mail")
+            @Html.TextBoxFor(m => m.Specialty.Description, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Изберете университет")
+            @Html.DropDownListFor(m => m.Specialty.University.UniversityId, new SelectList(Model.Universities, "UniversityId", "UniversityName"), new { @class = "form-control" })
+        </div>
+        <input type="submit" value="Submit" />
+    }
+</body>

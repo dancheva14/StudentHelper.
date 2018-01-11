@@ -1,0 +1,42 @@
+﻿@model StudentHelper.ViewModels.MultipleViewModel
+@{
+    ViewBag.Title = "InsertPerson";
+}
+<h2></h2>
+<body>
+    @using (Html.BeginForm("InsertPerson", "People", FormMethod.Post))
+    {
+        <div>
+            @Html.Label("Въведете име")
+            @Html.TextBoxFor(m => m.Person.PersonName, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Въведете e-mail")
+            @Html.TextBoxFor(m => m.Person.Email, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Въведете информация")
+            @Html.TextBoxFor(m => m.Person.PersonInformation, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Въведете образование")
+            @Html.EnumDropDownListFor(x => x.Person.EducationType,"Образование", new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Въведете тип")
+            @Html.EnumDropDownListFor(x => x.Person.Type, "Тип", new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Въведете телефонен номер")
+            @Html.TextBoxFor(m => m.Person.PhoneNumber, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Изберете университет")
+            @Html.DropDownListFor(m=>m.Person.University.UniversityId, new SelectList(Model.Universities,"UniversityId", "UniversityName"), new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Изберете специалности")
+        </div>
+        <input type="submit" value="Submit" />
+    }
+</body>

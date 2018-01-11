@@ -1,0 +1,15 @@
+﻿@model IEnumerable<StudentHelper.Models.University>
+@{
+    ViewBag.Title = "UniversitiesMainView";
+}
+
+<div style="margin-left:50px;">
+    <h2>Университети</h2>
+</div>
+
+@foreach (var u in Model)
+{
+    <li style="margin-left:100px;">
+        @Html.ActionLink(u.UniversityName, "UniversityInformationView", "Universities", new { universityId = u.UniversityId }, null)
+    </li>
+}

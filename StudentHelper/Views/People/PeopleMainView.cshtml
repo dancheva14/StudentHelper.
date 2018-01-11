@@ -1,0 +1,15 @@
+﻿@model IEnumerable<StudentHelper.Models.Person>
+@{
+
+}
+<div style="margin-left:50px;">
+    <h2>Студенти</h2>
+</div>
+
+@foreach (var s in Model)
+{
+    <li style="margin-left:100px;">
+        @Html.ActionLink(s.PersonName, "PersonInformationView", "People", new { personId = s.PersonId }, null)
+    </li>
+}
+

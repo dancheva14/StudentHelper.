@@ -1,0 +1,47 @@
+﻿@model StudentHelper.Models.Person
+@{
+    ViewBag.Title = "MyAccount";
+}
+
+<h2>Моят профил</h2>
+@Html.HiddenFor(m => m.PersonId)
+<div>
+    <div class="form-group">
+        @Html.Label("Потребителско име", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PersonName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PersonName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("E-mail", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Телефонен номер", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Информация за мен", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PersonInformation, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EducationType, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(m => m.EducationType)
+            @Html.ValidationMessageFor(m => m.EducationType)
+        </div>
+    </div>
+</div>

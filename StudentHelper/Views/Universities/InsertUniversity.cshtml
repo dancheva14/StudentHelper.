@@ -1,0 +1,24 @@
+﻿@model StudentHelper.Models.University
+@{
+    ViewBag.Title = "InsertUniversity";
+}
+
+<h2>Въведете университет</h2>
+<body>
+    @using (Html.BeginForm("InsertUniversity", "Universities", FormMethod.Post))
+    {
+        <div>
+            @Html.Label("Въведете университет")
+            @Html.TextBoxFor(m => m.UniversityName, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Населено място")
+            @Html.TextBoxFor(m => m.Location, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Сайт на университетат")
+            @Html.TextBoxFor(m => m.Site, new { @class = "form-control" })
+        </div>
+            <input type="submit" value="Submit" />
+    }
+</body>

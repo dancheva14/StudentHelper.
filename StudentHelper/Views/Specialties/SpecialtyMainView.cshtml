@@ -1,0 +1,17 @@
+﻿@model IEnumerable<StudentHelper.Models.Specialty>
+@{
+    ViewBag.Title = "SpecialtyMainView";
+}
+
+<div style="margin-left:50px;">
+    <h2>Специалности</h2>
+</div>
+
+@foreach (var s in Model)
+{
+    <li style="margin-left:100px;">
+        @Html.ActionLink(s.SpecialtyName, "SpecialtyInformationView", "Specialties", new { specialtyId = s.SpecialtyId }, null)
+    </li>
+}
+
+
